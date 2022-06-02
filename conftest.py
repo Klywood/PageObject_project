@@ -1,7 +1,7 @@
 import pytest
 import os
 import logging
-from settings import GH_TOKEN
+from .settings import GH_TOKEN
 
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
@@ -29,6 +29,7 @@ def browser(request):
 
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
     browser = None
     if browser_name == "chrome":
