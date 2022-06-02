@@ -1,6 +1,7 @@
 import pytest
 import os
 import logging
+from settings import GH_TOKEN
 
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
@@ -10,7 +11,8 @@ from selenium.webdriver.chrome.service import Service
 
 #  disable webdriver-manager logs
 logging.getLogger('WDM').setLevel(logging.NOTSET)
-res = ''
+#  Github API Token to use Firefox with webdriver-manager
+os.environ['GH_TOKEN'] = GH_TOKEN  # put your TOKEN here
 
 
 def pytest_addoption(parser):
